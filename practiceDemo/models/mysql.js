@@ -1,6 +1,7 @@
 
 var db = require('./db');
 var mysql = require('mysql');
+var dbOptions=db.dbOptions;
 var pool = mysql.createPool({
 	host:dbOptions.host,
 	user:dbOptions.user,
@@ -13,7 +14,7 @@ var pool = mysql.createPool({
 var query = function(sql,callBack){
 	pool.getConnection(function(err,conn){
         if(err){
-            callback(err,null,null);
+            //callback(err,null,null);
         }else{
             conn.query(sql,function(qerr,vals,fields){
                 //释放连接
@@ -23,6 +24,6 @@ var query = function(sql,callBack){
             });
         }
     });
-}
+};
 
 module.exports =query;

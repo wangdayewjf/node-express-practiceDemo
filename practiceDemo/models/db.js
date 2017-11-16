@@ -1,13 +1,13 @@
 var setting = require('../setting');
 var mysql = require('mysql'),
-	myConnection = require('express-mysql-connection');
+	myConnection = require('express-mysql-connection'),
 	dbOptions = {
 	  host: setting.host,
       user: setting.user,
       password: setting.password,
       port: setting.port,
       database: 'mydb'
-	}
+	};
 module.exports ={
 	mysql:mysql,
 	myConnection:myConnection,
