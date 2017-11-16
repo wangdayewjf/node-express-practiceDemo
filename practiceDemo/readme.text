@@ -1,0 +1,23 @@
+非express命令自动生成的文件有：本文件，setting.js,models文件夹以及内容，
+//model 里面存放模块
+//mysql工具被封装在mysql.js文件中，连接池方式的。
+setting.js文件是一些基本的配置信息
+
+//其中
+rotues是路由，app解析一遍，再抛给具体的路由解析，
+如下
+app.js
+
+var users = require('./routes/users');
+app.use('/users', users);
+
+users.js
+
+router.get('/', function(req, res, next) {
+   res.send('respond with a resource');
+});
+router.get('/testDB', function(req, res, next) {
+	res.send('textDB');
+});
+
+把/users/xx解析到user路由里面，然后user路由在解析余下的xx.
