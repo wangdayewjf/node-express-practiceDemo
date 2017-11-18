@@ -6,15 +6,15 @@ var pool = mysql.createPool({
 	host:dbOptions.host,
 	user:dbOptions.user,
 	password:dbOptions.password,
-	database:'database',
+	database:dbOptions.database,
 	port:dbOptions.port
 
 });
 
-var query = function(sql,callBack){
+var query = function(sql,callback){
 	pool.getConnection(function(err,conn){
         if(err){
-            //callback(err,null,null);
+            callback(err,null,null);
         }else{
             conn.query(sql,function(qerr,vals,fields){
                 //释放连接

@@ -6,7 +6,7 @@ var mysql = require('mysql'),
       user: setting.user,
       password: setting.password,
       port: setting.port,
-      database: 'mydb'
+      database: 'mysql'
 	};
 module.exports ={
 	mysql:mysql,
