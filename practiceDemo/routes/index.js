@@ -2,6 +2,12 @@ var express = require('express');
 var query = require('../models/mysql');
 var router = express.Router();
 
+var mysqlObj = require('../models/mysql');
+var TestUser = require('../dbModel/TestUser');
+var query = mysqlObj.query;
+var addUser = mysqlObj.addUser;
+var updateUser = mysqlObj.updateUser;
+var deleteUser = mysqlObj.deleteUser;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -9,9 +15,30 @@ router.get('/', function(req, res, next) {
 router.get('/testDB', function(req, res, next) {
   query('select * from testusertable',function(qerr,vals,fields){
   	res.send(JSON.stringify(qerr));
-  	res.send(stringify(vals));
-  	res.send(stringify(fields));
   });
 });
 
+router.get('/testAdd',function(req,res,next){
+	var user = new TestUser("nodeAddUser",'node123');
+	addUser(user,function(){
+		res.send("testAdd调用成功");
+		console.log('回调函数调用');
+	});
+});
+router.get('/testUpdate',function(req,res,next){
+	var user = new TestUser("nodeUpdateName","123","1");
+	updateUser(user,function(){
+		res.send("testUpdate调用成功");
+		console.log("回调函数调用");
+	});
+
+});
+
+router.get('/testDelete',function(req,res,next){
+	var user = new TestUser(null,null,'2');
+	deleteUser(user,function(){
+		res.send("testDelete调用成功");
+		console.log("回调函数调用");
+	});
+});
 module.exports = router;
