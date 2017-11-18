@@ -12,12 +12,19 @@ var dbP = {
 };
 //创建连接池对象
 var pool = mysql.createPool(dbP);//连接池连接数据库
+//监听connection事件
+pool.on('connection', function(connection) {
+    //这里可以做出一些同时的操作？
+    //connection.query('SET SESSION auto_increment_increment=1'); 
+});
 
 //创建单连接对象
 //单连接对象放到代码块里创建，由于是一次性的，用完就释放。
 
 
 //连接数据库集群
+
+//mycat搭建数据库集群，之后再弄。需要好几个数据库服务器。
 
 
 var query = function(sql,callback){
