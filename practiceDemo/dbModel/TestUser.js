@@ -2,7 +2,7 @@
 
 function TestUser(name,password,id){
 	this.name=name;
-	this.password;
+	this.password=password;
 	this.id = id;
 
 }

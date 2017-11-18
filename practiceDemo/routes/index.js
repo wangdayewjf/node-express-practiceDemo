@@ -19,7 +19,11 @@ router.get('/testDB', function(req, res, next) {
 });
 
 router.get('/testAdd',function(req,res,next){
-	var user = new TestUser("nodeAddUser",'node123');
+	//获取时间戳
+	var timestamp = Date.parse(new Date());
+	timestamp = timestamp / 1000;//用时间戳来表明唯一性
+
+	var user = new TestUser("nodeAddUser"+timestamp,1111);
 	addUser(user,function(){
 		res.send("testAdd调用成功");
 		console.log('回调函数调用');
