@@ -1,8 +1,8 @@
 var express = require('express');
-var query = require('../models/mysql');
+var query = require('../models/others/mysql');
 var router = express.Router();
 
-var mysqlObj = require('../models/mysql');
+var mysqlObj = require('../models/others/mysql');
 var TestUser = require('../dbModel/TestUser');
 var query = mysqlObj.query;
 var addUser = mysqlObj.addUser;

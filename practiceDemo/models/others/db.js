@@ -1,4 +1,4 @@
-var setting = require('../setting');
+var setting = require('../../setting');
 var mysql = require('mysql'),
 	myConnection = require('express-mysql-connection'),
 	dbOptions = {
