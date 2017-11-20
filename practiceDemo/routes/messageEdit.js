@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 router.get('/show', function(req, res, next) {
 	Message.findAll().then(function(msgs) {
-         res.send('查找所以信息');
+         res.send(JSON.stringify(msgs));
     });
 });
 router.get('/delete', function(req, res, next) {

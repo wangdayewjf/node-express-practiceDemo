@@ -14,7 +14,7 @@ var Message = sequelize.define('message', {
         type: Sequelize.TEXT
     }
 });
-Message.sync({force: true}).then(function () {
+Message.sync({force: false}).then(function () {
   // 已创建数据表
   return Message.create({
     username: 'testName',
