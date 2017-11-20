@@ -1,5 +1,5 @@
 var sequelize = require('./localSequelize');
-var User = sequelize.import('./user');
+var User = sequelize.import('./xuser');
 var UserCheckin = sequelize.import('./userCheckin');
 var UserAddress = sequelize.import('./userAddress');
 var Role = sequelize.import('./role');

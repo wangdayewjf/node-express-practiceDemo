@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
     underscored: true,
     paranoid: true,
     freezeTableName: true,
-    tableName: 'user',
+    tableName: 'xuser',
     charset: 'utf8',
     collate: 'utf8_general_ci'
 });
