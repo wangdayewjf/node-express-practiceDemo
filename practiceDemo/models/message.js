@@ -16,10 +16,11 @@ var Message = sequelize.define('message', {
 });
 Message.sync({force: false}).then(function () {
   // 已创建数据表
-  return Message.create({
-    username: 'testName',
-    content: 'xxxx'
-  });
+  //这里写创建表之后的操作，
+  // return Message.create({
+  //   username: 'testName',
+  //   content: 'xxxx'
+  // });
 }); //创建表
 
 module.exports = Message;
