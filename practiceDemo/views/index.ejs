@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>聊天</title>
-    <link rel="stylesheet" href="">
-    <script language="JavaScript" src="http://code.jquery.com/jquery-1.11.0.js"></script>  
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <script type="text/javascript" src="/static/javascripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">  
     </script>  
 </head>  
@@ -27,12 +27,12 @@ div {
     <!-- <input type="text" id="token" name="" value="" placeholder="" readonly="false"> -->  
 </body>  
 <script type="text/javascript">  
-var ws = new WebSocket("ws://127.0.0.1:3000?t=test");  
+var ws = new WebSocket("ws://127.0.0.1:4000?t=test");  
 ws.onopen = function() {  
     console.log("连接状态", ws);  
     $("#show").html("连接状态;" + ws.readyState + "</br>");  
     console.log("open");  
-    ws.open("start");  
+    //ws.open("start");  
 };  
 ws.onmessage = function(evt) {  
     // console.log(evt.data)  
@@ -45,8 +45,7 @@ ws.onclose = function(evt) {
 };  
 ws.onerror = function(evt) {  
     console.log("WebSocketError!");  
-};  
-  
+};
 function send() {  
     var msg = $("#message").val();  
     var key = $("#token").val();  

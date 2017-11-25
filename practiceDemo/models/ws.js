@@ -1,6 +1,6 @@
-ar WebSocketServer = require('ws').Server,  
+var WebSocketServer = require('ws').Server,  
     wss = new WebSocketServer({
-        port: 3000, //监听接口
+        port: 4000, //监听接口
         verifyClient: socketVerify //可选，验证连接函数
     });
 function socketVerify(info) {
@@ -54,3 +54,5 @@ wss.on('connection', function(ws) {
         }
     });
 });
+
+module.exports = WebSocketServer;
