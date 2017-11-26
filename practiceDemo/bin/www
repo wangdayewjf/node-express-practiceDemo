@@ -7,7 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('practicedemo:server');
 var http = require('http');
-var WebSocketServer = require('../models/ws');//启动webServer服务器。
+var socketIo = require('../models/socket');
+//var WebSocketServer = require('../models/ws');//启动原始webServer服务器。
+//var WebSocketServerThird = require('../models/faye-websocket');//第三方工具搭建的webServer服务器。
 /**
  * Get port from environment and store in Express.
  */
@@ -21,6 +23,12 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+
+//第三种webSorcket编程，socket.io
+socketIo.createIoSocket(server);
+//1跟其他的相比，它还能够和Express.js提供的传统请求方式很好的结合，即可以在同一个域名，同一个端口提供两种连接方式.
+//不需要费资源再开一个websocket服务器。
+//2,它客户端的js工具，对各个版本的服务器做了封装，提供了统一接口。
 /**
  * Listen on provided port, on all network interfaces.
  */
